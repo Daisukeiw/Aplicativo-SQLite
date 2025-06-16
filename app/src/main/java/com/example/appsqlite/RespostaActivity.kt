@@ -15,18 +15,21 @@ class RespostaActivity : AppCompatActivity() {
         val edtEndereco: EditText = findViewById(R.id.edtEndereco)
         val edtBairro: EditText = findViewById(R.id.edtBairro)
         val edtCep: EditText = findViewById(R.id.edtCep)
+        val edtObs: EditText = findViewById(R.id.edtObs)
+
         val btnConfirmar: Button = findViewById(R.id.btnConfirmar)
 
         edtNome.setText(intent.getStringExtra("nome"))
         edtEndereco.setText(intent.getStringExtra("endereco"))
         edtBairro.setText(intent.getStringExtra("bairro"))
         edtCep.setText(intent.getStringExtra("cep"))
+        edtObs.setText(intent.getStringExtra("observacoes"))
 
         // SQLite
         val db = DBHelper(this, null)
 
         btnConfirmar.setOnClickListener {
-            db.addPessoa(edtNome.text.toString(), edtEndereco.text.toString(), edtBairro.text.toString(), edtCep.text.toString())
+            db.addPessoa(edtNome.text.toString(), edtEndereco.text.toString(), edtBairro.text.toString(), edtCep.text.toString(), edtObs.text.toString())
             finish()
         }
     }

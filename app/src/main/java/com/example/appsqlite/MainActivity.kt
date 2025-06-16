@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         val edtEndereco:EditText = findViewById(R.id.edtEndereco)
         val edtBairro:EditText = findViewById(R.id.edtBairro)
         val edtCep:EditText = findViewById(R.id.edtCep)
+        val edtObs:EditText = findViewById(R.id.edtObs)
 
         val btnCadastrar:Button = findViewById(R.id.btnCadastrar)
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("endereco",edtEndereco.text.toString())
             intent.putExtra("bairro",edtBairro.text.toString())
             intent.putExtra("cep",edtCep.text.toString())
+            intent.putExtra("observacoes",edtObs.text.toString())
             startActivity(intent)
         }
     }

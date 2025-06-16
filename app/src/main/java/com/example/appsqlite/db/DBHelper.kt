@@ -14,7 +14,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) : SQLit
                         NAME_COL + " TEXT," +
                         END_COL + " TEXT," +
                         BAR_COL + " TEXT," +
-                        CEP_COL + " TEXT,"
+                        CEP_COL + " TEXT," +
+                        OBS_COL + " TEXT,"
                 )
         db.execSQL(query)
     }
@@ -24,12 +25,13 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) : SQLit
         onCreate(db)
     }
 
-    fun addPessoa(name: String, endereco: String, bairro: String, cep: String) {
+    fun addPessoa(name: String, endereco: String, bairro: String, cep: String, observacoes: String) {
         val values = ContentValues()
         values.put(NAME_COL, name)
         values.put(END_COL, endereco)
         values.put(BAR_COL, bairro)
         values.put(CEP_COL, cep)
+        values.put(OBS_COL, observacoes)
         val db = this.writableDatabase
         db.insert(TABLE_NAME, null, values)
         db.close()
@@ -45,6 +47,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) : SQLit
         val END_COL = "endereco"
         val BAR_COL = "bairro"
         val CEP_COL = "cep"
+        val OBS_COL = "observacoes"
     }
 
 }
